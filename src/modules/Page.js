@@ -1,7 +1,10 @@
-export default class Page {
-    constructor(nav) {
-        this.nav = nav
-        this.pages = document.querySelectorAll('main #page')
+import Elements from "../index.js"
+
+
+
+export default class Page extends Elements {
+    constructor() {
+        super()
     }
 
     selectPage(page) {
@@ -21,3 +24,9 @@ export default class Page {
     }
 
 }
+
+
+
+localStorage.page
+    ? new Page().selectPage(localStorage.page)
+    : new Page().selectPage('contacts')

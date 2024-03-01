@@ -6,10 +6,10 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: {
         // test: './modules/test.js',
-        // eventListener: './src/modules/EventListeners.js',
-        // page: './src/modules/Page.js',
-        // localStorage: './src/modules/LocalStorage.js',
-        index: './index.js',
+        eventListener: './modules/EventListeners.js',
+        page: './modules/Page.js',
+        localStorage: './modules/LocalStorage.js',
+        // index: './index.js',
     },
     output: {
         filename: '[name].[contenthash].js',

@@ -126,27 +126,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./style.css\");\n/* harmony import */ var _modules_Page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Page */ \"./modules/Page.js\");\n/* harmony import */ var _modules_LocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/LocalStorage */ \"./modules/LocalStorage.js\");\n/* harmony import */ var _modules_EventListeners__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/EventListeners */ \"./modules/EventListeners.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nconst elements = {\r\n    mainImage: document.querySelector('header img'),\r\n    inputImage: document.querySelector('header input'),\r\n    backgroundImage: document.querySelector('header .bgc_image'),\r\n    nav: document.querySelectorAll('nav div'),\r\n}\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (elements);\r\n\r\n\r\n\r\nconst page = new _modules_Page__WEBPACK_IMPORTED_MODULE_1__[\"default\"](elements.nav)\r\nconst lclStrg = new _modules_LocalStorage__WEBPACK_IMPORTED_MODULE_2__[\"default\"]()\r\nconst eventListener = new _modules_EventListeners__WEBPACK_IMPORTED_MODULE_3__[\"default\"](elements)\r\n\r\n\r\n\r\nif (localStorage.image) {\r\n    lclStrg.checkLocalStorage(localStorage.getItem('image'))\r\n}\r\n\r\nlocalStorage.page\r\n    ? page.selectPage(localStorage.page)\r\n    : page.selectPage('contacts')\r\n\r\n\r\n\r\neventListener.inputImageEvent()\r\neventListener.navEvent()\n\n//# sourceURL=webpack:///./index.js?");
-
-/***/ }),
-
-/***/ "./modules/EventListeners.js":
-/*!***********************************!*\
-  !*** ./modules/EventListeners.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ EventListeners)\n/* harmony export */ });\n/* harmony import */ var _modules_Page_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/Page.js */ \"./modules/Page.js\");\n/* harmony import */ var _modules_LocalStorage_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/LocalStorage.js */ \"./modules/LocalStorage.js\");\n\r\n\r\n\r\n\r\n\r\nclass EventListeners {\r\n    constructor(elements) {\r\n        this.inputImage = elements.inputImage\r\n        this.nav = elements.nav\r\n    }\r\n\r\n    inputImageEvent() {\r\n        this.inputImage.addEventListener('change', (event) => {\r\n            const url = URL.createObjectURL(event.target.files[0])\r\n            localStorage.setItem('image', url)\r\n            new _modules_LocalStorage_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]().checkLocalStorage(url)\r\n        })\r\n    }\r\n\r\n    navEvent() {\r\n        this.nav.forEach((element) => element.addEventListener('click', (event) => {\r\n            new _modules_Page_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"](this.nav).selectPage(event.target.className)\r\n            new _modules_Page_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"](this.nav).scrollToPage()\r\n        }))\r\n    }\r\n}\n\n//# sourceURL=webpack:///./modules/EventListeners.js?");
-
-/***/ }),
-
-/***/ "./modules/LocalStorage.js":
-/*!*********************************!*\
-  !*** ./modules/LocalStorage.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ LocalStorage)\n/* harmony export */ });\n/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index.js */ \"./index.js\");\n\r\n\r\nclass LocalStorage {\r\n    constructor() {\r\n        this.mainImage = _index_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].mainImage\r\n        this.backgroundImage = _index_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].backgroundImage\r\n    }\r\n\r\n    checkLocalStorage(url) {\r\n        try {\r\n            this.mainImage.src = url\r\n            this.backgroundImage.style.backgroundImage = `url(${url})`\r\n        } catch(e) {\r\n            console.error(e);\r\n        }\r\n    }\r\n}\n\n//# sourceURL=webpack:///./modules/LocalStorage.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Elements)\n/* harmony export */ });\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./style.css\");\n\r\n\r\nclass Elements {\r\n    constructor() {\r\n        this.mainImage = document.querySelector('header img')\r\n        this.inputImage = document.querySelector('header input')\r\n        this.backgroundImage = document.querySelector('header .bgc_image')\r\n        this.nav = document.querySelectorAll('nav div')\r\n        this.pages = document.querySelectorAll('main #page')\r\n    }\r\n}\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -156,7 +136,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Page)\n/* harmony export */ });\nclass Page {\r\n    constructor(nav) {\r\n        this.nav = nav\r\n        this.pages = document.querySelectorAll('main #page')\r\n    }\r\n\r\n    selectPage(page) {\r\n        for (let i = 0; i < this.nav.length; i ++) {\r\n            if (this.nav[i].className === page) {\r\n                this.pages[i].style.display = 'flex'\r\n                localStorage.setItem('page', page)\r\n            }\r\n            else {\r\n                this.pages[i].style.display = 'none'\r\n            }\r\n        }\r\n    }\r\n\r\n    scrollToPage() {\r\n        document.querySelector(`main`).scrollIntoView({block: 'end', behavior: 'smooth' })\r\n    }\r\n\r\n}\n\n//# sourceURL=webpack:///./modules/Page.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Page)\n/* harmony export */ });\n/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index.js */ \"./index.js\");\n\r\n\r\n\r\n\r\nclass Page extends _index_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"] {\r\n    constructor() {\r\n        super()\r\n    }\r\n\r\n    selectPage(page) {\r\n        for (let i = 0; i < this.nav.length; i ++) {\r\n            if (this.nav[i].className === page) {\r\n                this.pages[i].style.display = 'flex'\r\n                localStorage.setItem('page', page)\r\n            }\r\n            else {\r\n                this.pages[i].style.display = 'none'\r\n            }\r\n        }\r\n    }\r\n\r\n    scrollToPage() {\r\n        document.querySelector(`main`).scrollIntoView({block: 'end', behavior: 'smooth' })\r\n    }\r\n\r\n}\r\n\r\n\r\n\r\nlocalStorage.page\r\n    ? new Page().selectPage(localStorage.page)\r\n    : new Page().selectPage('contacts')\n\n//# sourceURL=webpack:///./modules/Page.js?");
 
 /***/ }),
 
@@ -283,7 +263,7 @@ eval("module.exports = __webpack_require__.p + \"b1f762d1c03bbc84d9ab.jpeg\";\n\
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"index": 0
+/******/ 			"page": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -310,8 +290,8 @@ eval("module.exports = __webpack_require__.p + \"b1f762d1c03bbc84d9ab.jpeg\";\n\
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./index.js");
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./modules/Page.js");
 /******/ 	
 /******/ })()
 ;

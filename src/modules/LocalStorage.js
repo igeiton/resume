@@ -1,9 +1,10 @@
-import elements from '../index.js'
+import Elements from '../index.js'
 
-export default class LocalStorage {
+
+
+export default class LocalStorage extends Elements {
     constructor() {
-        this.mainImage = elements.mainImage
-        this.backgroundImage = elements.backgroundImage
+        super()
     }
 
     checkLocalStorage(url) {
@@ -14,4 +15,10 @@ export default class LocalStorage {
             console.error(e);
         }
     }
+};
+
+
+
+if (localStorage.image) {
+    new LocalStorage().checkLocalStorage(localStorage.getItem('image'))
 }

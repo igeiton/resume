@@ -1,15 +1,18 @@
 import Page from '../modules/Page.js'
 import LocalStorage from '../modules/LocalStorage.js'
+import Elements from '../index.js'
 
 
 
-export default class EventListeners {
-    constructor(elements) {
-        this.inputImage = elements.inputImage
-        this.nav = elements.nav
+export default class EventListeners extends Elements {
+    constructor() {
+        super()
     }
 
     inputImageEvent() {
+        if (!localStorage.image) {
+            return 0
+        }
         this.inputImage.addEventListener('change', (event) => {
             const url = URL.createObjectURL(event.target.files[0])
             localStorage.setItem('image', url)
@@ -24,3 +27,10 @@ export default class EventListeners {
         }))
     }
 }
+
+
+
+const eventListener = new EventListeners()
+
+eventListener.inputImageEvent()
+eventListener.navEvent()
