@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+    
+    a, a:visited {
+        color: #19f0ff;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+}
+
+%centering {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$bgc-image-padding: 10%;
+
+%bgc-position {
+    top: -($bgc-image-padding / 2);
+    left: -($bgc-image-padding / 2);
+    height: 100% + $bgc-image-padding;
+    width: 100% + $bgc-image-padding;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+header {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #fff;
+    height: 300px;
+
+    .bgc_image {
+        z-index: -1;
+        position: absolute;
+        @extend %bgc-position;
+        filter: blur(10px);
+
+        // animation: scaling_bg 8s ease-in-out infinite alternate;
+        transition: transform 5s ease-in-out;
+    }
+    .container {
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        @extend %centering;
+        padding: 0px 50px;
+    }
+
+    &:hover {
+        .bgc_image {
+            transform: scale(1.05);
+        }
+    }
+}
+
+.mainIcon {
+    @extend %centering;
+    flex-direction: column;
+    grid-gap: 15px;
+    flex: 1 1 auto;
+    min-width: 200px;
+
+    img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        box-shadow: 0 0 100px 0px #000;
+    }
+
+    label {
+        text-align: center;
+        font-size: 14px;
+        cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: #000;
+        background-color: #fff;
+        border: 1px solid #000;
+
+        transition: .1s;
+    }
+    label:hover {
+        color: #fff;
+        background-color: #000;
+        border: 1px solid #fff;
+    }
+    input {
+        display: none;
+    }
+}
+.nav {
+    @extend %centering;
+    grid-gap: 50px;
+    font-size: 21px;
+    max-width: 100%;
+    flex: 1 0 auto;
+
+    div {
+        width: 25%;
+        text-align: center;
+        padding: 15px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 5px;
+        box-shadow: 0 0 100px 0px #000;
+
+        transition: .1s;
+    }
+    div:hover {
+        cursor: pointer;
+        color: #fff;
+        background-color: #000;
+        border: 1px solid #fff;
+    }
+}
+
+main {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex: 1 0 auto;
+    padding: 75px;
+    min-height: 100vh;
+}
+
+main .bgc_image {
+    filter: blur(5px);
+    @extend %bgc-position;
+    z-index: -1;
+    position: absolute;
+    background-image: url('./images/bgc-2.jpeg');
+}
+
+main .contacts {
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100%;
+    width: 100%;
+    font-size: 50px;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 25px;
+        @extend %centering;
+        width: 50%;
+    }
+    span {
+        text-decoration: underline;
+    }
+}
+
+main div:not(:first-child) {
+    // backdrop-filter: blur(15px);
+    border-radius: 50px;
+    color: #fff;
+}
+
+main .stack, main .expOfWork, main .aboutMe {
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 40px;
+    justify-content: space-around;
+    padding: 50px 0;
+
+    div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        grid-gap: 75px;
+        width: 40%;
+    }
+
+    span:first-child {
+        text-decoration: underline;
+    }
+}
+
+
+
+
+
+
+
+
+//////////////////// media ////////////////////
+
+@media (max-width: 1600px) {
+    .nav {
+        font-size: 12px;
+        flex-direction: column;
+        grid-gap: 25px;
+
+        div {
+            padding: 10px;
+        }
+    }
+    main #page div {
+        font-size: 21px;
+    }
+
+    main .contacts div {
+        grid-gap: 0;
+    }
+
+    main #page:not(:first-child) div {
+        grid-gap: 50px;
+    }
+}
+
+//////////////////// keyframes ////////////////////
+
+@keyframes scaling_bg {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
