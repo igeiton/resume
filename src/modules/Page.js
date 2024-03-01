@@ -1,14 +1,12 @@
-import elements from '../index.js'
-
 export default class Page {
-
-    constructor() {
+    constructor(nav) {
+        this.nav = nav
         this.pages = document.querySelectorAll('main #page')
     }
 
     selectPage(page) {
-        for (let i = 0; i < elements.nav.length; i++) {
-            if (elements.nav[i].className === page) {
+        for (let i = 0; i < this.nav.length; i ++) {
+            if (this.nav[i].className === page) {
                 this.pages[i].style.display = 'flex'
                 localStorage.setItem('page', page)
             }

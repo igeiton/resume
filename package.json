@@ -4,6 +4,7 @@
   "description": "folder2_with_webpack",
   "main": "index.js",
   "scripts": {
+    "start": "http-server",
     "dev": "webpack --mode development",
     "prod": "webpack --mode production",
     "watch": "webpack --mode development --watch",
