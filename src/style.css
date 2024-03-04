@@ -119,7 +119,7 @@ main .bgc_image {
   filter: blur(5px);
   z-index: -1;
   position: absolute;
-  background-image: url("./images/bgc-2.jpeg");
+  background-image: url("@images/bgc-2");
 }
 
 main .contacts {

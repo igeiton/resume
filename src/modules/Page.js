@@ -1,4 +1,4 @@
-import Elements from "../index.js"
+import Elements from "@/index.js"
 
 
 

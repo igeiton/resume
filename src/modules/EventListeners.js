@@ -1,6 +1,6 @@
-import Page from '../modules/Page.js'
-import LocalStorage from '../modules/LocalStorage.js'
-import Elements from '../index.js'
+import Page from '@modules/Page.js'
+import LocalStorage from '@modules/LocalStorage.js'
+import Elements from '@/index.js'
 
 
 
@@ -10,9 +10,6 @@ export default class EventListeners extends Elements {
     }
 
     inputImageEvent() {
-        if (!localStorage.image) {
-            return 0
-        }
         this.inputImage.addEventListener('change', (event) => {
             const url = URL.createObjectURL(event.target.files[0])
             localStorage.setItem('image', url)

@@ -140,7 +140,7 @@ main .bgc_image {
     @extend %bgc-position;
     z-index: -1;
     position: absolute;
-    background-image: url('./images/bgc-2.jpeg');
+    background-image: url('@images/bgc-2');
 }
 
 main .contacts {
